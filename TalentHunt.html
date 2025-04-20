@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advanced LinkedIn Talent Search</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      form {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .form-group > div {
+        flex: 1 1 250px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 12px 20px;
+        background-color: #0073b1;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #005f8d;
+      }
+      .results {
+        max-width: 900px;
+        margin: 30px auto;
+      }
+      .profile {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .profile a {
+        color: #0073b1;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Advanced LinkedIn Talent Search</h2>
+
+    <form id="searchForm">
+      <div class="form-group">
+        <div>
+          <label>Skills <span style="color: red">*</span></label>
+          <input
+            type="text"
+            id="skills"
+            placeholder="e.g., Python, SQL"
+            required
+          />
+        </div>
+        <div>
+          <label>Location <span style="color: red">*</span></label>
+          <input
+            type="text"
+            id="location"
+            placeholder="e.g., Mumbai, Remote"
+            required
+          />
+        </div>
+        <div>
+          <label>Job Title <span style="color: red">*</span></label>
+          <input type="text" id="job" placeholder="e.g., Developer" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>Years of Experience</label
+          ><input type="text" id="experience" placeholder="e.g., 3+ years" />
+        </div>
+        <div>
+          <label>Industry</label
+          ><input
+            type="text"
+            id="industry"
+            placeholder="e.g., IT Services, FinTech"
+          />
+        </div>
+        <div>
+          <label>Current Company</label
+          ><input type="text" id="company" placeholder="e.g., TCS, Infosys" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>Education</label
+          ><input type="text" id="education" placeholder="e.g., B.Tech, MCA" />
+        </div>
+        <div>
+          <label>Graduation Year</label
+          ><input type="text" id="gradYear" placeholder="e.g., 2020" />
+        </div>
+        <div>
+          <label>Certifications</label
+          ><input type="text" id="certs" placeholder="e.g., AWS, Azure" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>LinkedIn Keywords</label
+          ><input
+            type="text"
+            id="keywords"
+            placeholder="e.g., passionate, innovative"
+          />
+        </div>
+        <div>
+          <label>Languages</label
+          ><input
+            type="text"
+            id="languages"
+            placeholder="e.g., English, Hindi"
+          />
+        </div>
+        <div>
+          <label>Preferred Location</label
+          ><input
+            type="text"
+            id="preferredLocation"
+            placeholder="e.g., Remote, Mumbai"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>Job Type</label
+          ><select id="jobType">
+            <option value="">Any</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+            <option value="contract">Contract</option>
+            <option value="freelance">Freelance</option>
+          </select>
+        </div>
+        <div>
+          <label>Notice Period</label
+          ><input
+            type="text"
+            id="notice"
+            placeholder="e.g., Immediate, 1 Month"
+          />
+        </div>
+        <div>
+          <label>Tools/Tech Stack</label
+          ><input type="text" id="tech" placeholder="e.g., React, .NET" />
+        </div>
+      </div>
+
+      <!-- More filters -->
+      <div class="form-group">
+        <div>
+          <label>GitHub/Portfolio Keywords</label
+          ><input
+            type="text"
+            id="portfolio"
+            placeholder="e.g., GitHub, portfolio site"
+          />
+        </div>
+        <div>
+          <label>Achievements</label
+          ><input
+            type="text"
+            id="awards"
+            placeholder="e.g., Hackathons, Certifications"
+          />
+        </div>
+        <div>
+          <label>Open to Relocation</label
+          ><select id="relocation">
+            <option value="">Any</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label>Open to Work Status</label>
+        <select id="openToWork">
+          <option value="">Any</option>
+          <option value="open to work">Open to Work</option>
+          <option value="actively looking">Actively Looking</option>
+          <option value="seeking opportunities">Seeking Opportunities</option>
+        </select>
+      </div>
+
+      <button type="submit">Search Candidates</button>
+    </form>
+
+    <div class="results" id="results"></div>
+
+    <script>
+      const API_KEY = "Google_Custom_Search_API_from_Google_Cloud_Console_[eg._AIza...]";
+      const SEARCH_ENGINE_ID = "Custom_Search_Engine_ID_from_programmable_search_engine_[eg._57f0b...]";
+
+      document
+        .getElementById("searchForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const q = [
+            "site:linkedin.com/in",
+            document.getElementById("skills").value,
+            document.getElementById("location").value,
+            document.getElementById("job").value,
+            document.getElementById("experience").value,
+            document.getElementById("industry").value,
+            document.getElementById("company").value,
+            document.getElementById("education").value,
+            document.getElementById("gradYear").value,
+            document.getElementById("certs").value,
+            document.getElementById("keywords").value,
+            document.getElementById("languages").value,
+            document.getElementById("preferredLocation").value,
+            document.getElementById("jobType").value,
+            document.getElementById("notice").value,
+            document.getElementById("tech").value,
+            document.getElementById("portfolio").value,
+            document.getElementById("awards").value,
+            document.getElementById("relocation").value,
+            document.getElementById("openToWork").value, // <--- added this
+          ]
+            .filter(Boolean)
+            .join(" ");
+
+          const resultsDiv = document.getElementById("results");
+          resultsDiv.innerHTML = "<p>Searching...</p>";
+
+          const url = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${encodeURIComponent(
+            q
+          )}`;
+
+          try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (data.items) {
+              resultsDiv.innerHTML = "";
+              data.items.forEach((item) => {
+                if (item.link.includes("linkedin.com/in")) {
+                  resultsDiv.innerHTML += `
+                <div class="profile">
+                  <a href="${item.link}" target="_blank">${item.title}</a>
+                  <p>${item.snippet}</p>
+                </div>
+              `;
+                }
+              });
+            } else {
+              resultsDiv.innerHTML = "<p>No profiles found.</p>";
+            }
+          } catch (err) {
+            console.error(err);
+            resultsDiv.innerHTML = "<p>Error fetching results.</p>";
+          }
+        });
+    </script>
+  </body>
+</html>
