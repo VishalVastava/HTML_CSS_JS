@@ -36,7 +36,7 @@ Coming soon! (Or host it yourself in under 5 mins. Instructions below 👇)
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/advanced-linkedin-search.git
+git clone https://github.com/VishalVastava/advanced-linkedin-search.git
 cd advanced-linkedin-search
 ```
 
